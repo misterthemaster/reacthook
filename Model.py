@@ -92,3 +92,7 @@ class PlayerPointSchema(ma.Schema):
 class CommentCategorySchema(ma.Schema):
     name = fields.String()
     comment = fields.String()
+
+class GameContentSchema(ma.Schema):
+    id = fields.Integer()
+    nbPoints = fields.Integer(required=True)

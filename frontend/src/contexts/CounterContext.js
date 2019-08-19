@@ -4,7 +4,8 @@ import createUseContext from "constate";
 
 // Define the initial state of our app
 const initialState = {
-  contacts: []
+  contacts: [],
+  gameId: null
 };
 
 // Define a pure function reducer
@@ -33,6 +34,11 @@ const reducer = (state, action) => {
       return {
         contacts: action.payload
       };
+      case "START_GAME":
+        debugger;
+      return {
+        contacts: [...state.contacts], gameId: action.payload
+      };
     default:
       throw new Error();
   }
@@ -41,7 +47,7 @@ const reducer = (state, action) => {
 // Define your custom hook that contains your state, dispatcher and actions
 const useCounter = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { contacts, loading } = state;
+  const { contacts, loading, gameId } = state;
   const removePoint = id => {
     dispatch({
       type: "REMOVE_POINT",
@@ -66,7 +72,13 @@ const useCounter = () => {
       payload: contacts
     });
   };
-  return { contacts, loading, addPoint, removePoint, addPlayer,LoadTheGame  };
+  const startGame = id => {
+    dispatch({
+      type: "START_GAME",
+      payload: id
+    });
+  };
+  return { gameId, contacts, loading, addPoint, removePoint, addPlayer,LoadTheGame, startGame };
 };
 
 // Share your custom hook

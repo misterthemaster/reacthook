@@ -8,12 +8,12 @@ export default function ButtonsGroup(props) {
     const { removePoint,addPoint } = useCounterContext();
 
     const onAddPoint = () => {
-      axios.put('http://127.0.0.1:5000/api/PlayerPoint',{id:props.user.id,nbPoints:props.user.nbPoints + 1});
+      axios.put('http://127.0.0.1:5000/api/GameContent',{id:props.user.id,nbPoints:props.user.nbPoints + 1});
       addPoint(props.user.id);
     };
 
     const onRemovePoint = () => {
-      axios.put('http://127.0.0.1:5000/api/PlayerPoint',{id:props.user.id,nbPoints:props.user.nbPoints - 1});
+      axios.put('http://127.0.0.1:5000/api/GameContent',{id:props.user.id,nbPoints:props.user.nbPoints - 1});
       removePoint(props.user.id);
     };
     

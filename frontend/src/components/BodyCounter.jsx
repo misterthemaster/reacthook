@@ -12,7 +12,7 @@ export default function BodyCounter() {
     useEffect(() => {
       if (isloaded===false ) {
         async function fetchData() {
-          const response = await axios('http://127.0.0.1:5000/api/PlayerPoint');
+          const response = await axios('http://127.0.0.1:5000/api/PlayerPoint?id_game=1');
 
           setIsLoaded(true);
           LoadTheGame(response.data.data);
