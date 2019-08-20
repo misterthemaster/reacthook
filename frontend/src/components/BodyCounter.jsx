@@ -6,13 +6,13 @@ import axios from "axios"
 
 export default function BodyCounter() {
 
-    const { contacts, LoadTheGame } = useCounterContext();
+    const { gameId, contacts, LoadTheGame } = useCounterContext();
     const [isloaded, setIsLoaded] = useState(false);
   
     useEffect(() => {
       if (isloaded===false ) {
         async function fetchData() {
-          const response = await axios('http://127.0.0.1:5000/api/PlayerPoint?id_game=1');
+          const response = await axios('http://127.0.0.1:5000/api/PlayerPoint?id_game='+gameId);
 
           setIsLoaded(true);
           LoadTheGame(response.data.data);

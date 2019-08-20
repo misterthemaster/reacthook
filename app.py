@@ -5,6 +5,7 @@ from resources.Category import CategoryResource
 from resources.Comment import CommentResource
 from resources.PlayerPoint import PlayerPointResource
 from resources.GameContent import GameContentRessource
+from resources.Game import GameRessource
 from jinja2 import TemplateNotFound
 
 api_bp = Blueprint('api', __name__)
@@ -16,6 +17,7 @@ api.add_resource(CategoryResource, '/Category')
 api.add_resource(CommentResource, '/Comment')
 api.add_resource(PlayerPointResource, '/PlayerPoint')
 api.add_resource(GameContentRessource, '/GameContent')
+api.add_resource(GameRessource, '/Game')
 
 #Site Routes
 images_folder = Blueprint('site', __name__, static_url_path='/images', static_folder='images')

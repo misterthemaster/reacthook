@@ -32,10 +32,10 @@ const reducer = (state, action) => {
       };
       case "LOAD_GAME":
       return {
-        contacts: action.payload
+        contacts: action.payload, gameId: state.gameId
       };
       case "START_GAME":
-        debugger;
+        //debugger;
       return {
         contacts: [...state.contacts], gameId: action.payload
       };

@@ -96,3 +96,8 @@ class CommentCategorySchema(ma.Schema):
 class GameContentSchema(ma.Schema):
     id = fields.Integer()
     nbPoints = fields.Integer(required=True)
+
+class GameSchema(ma.Schema):
+    id = fields.Integer()
+    description = fields.String()
+    creation_date = fields.String()
