@@ -105,3 +105,4 @@ migrations/
 .vscode/
 frontend/build/
 frontend/node_modules/
+pythonapi.db
