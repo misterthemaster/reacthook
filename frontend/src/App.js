@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import CounterPage from "./views/CounterPage"
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom"
 import About from "./views/About"
-import { Header, Menu } from "semantic-ui-react"
+import { Header, Menu, Icon } from "semantic-ui-react"
 
 
 export default function App() {
@@ -14,23 +14,25 @@ export default function App() {
 
       <div>
         <Menu>
-          <Menu.Item as={Link} to='/About'
-            name='About'
-            active={activeItem === 'About'}
-            onClick={()=>setActiveItem('About')}>
-              About
-          </Menu.Item>
-          <Menu.Item as={Link} to='/Partie'
+          
+          <Menu.Item as={NavLink} to='/'
             name='Partie'
             active={activeItem === 'Partie'}
             onClick={()=>setActiveItem('Partie')}>
-              Partie          
+              <Icon name='game' /> Partie          
             </Menu.Item>
+            
+            <Menu.Item as={NavLink} to='/About'
+            name='About'
+            active={activeItem === 'About'}
+            onClick={()=>setActiveItem('About')}>
+              <Icon name='file alternate outline' /> About
+          </Menu.Item>
         </Menu>
 
         <Header size='huge' textAlign='center'>Concours d'assiduité</Header>
         <Route path="/about" component={About} />
-        <Route path="/partie" component={CounterPage} />
+        <Route exact path="/" component={CounterPage} />
       </div>
 
       
