@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useCounterContext } from "../contexts/CounterContext"
 import { Container } from "semantic-ui-react"
 import HeaderCounter from "./HeaderCounter"
@@ -7,17 +7,10 @@ import ListOfGames from "./ListOfGames"
 
 export default function LoadInitialGame() {
 
-    const { gameId, startGame } = useCounterContext();
-
-    const onStartGame = id => {
-      startGame(id);
-    }
-
-    //debugger;
+    const { gameId } = useCounterContext();
     const content = [];
     if (gameId === null)
-      //content.push(<Button color="green" onClick={() => {onStartGame(1)}}>Démarre</Button>);
-      content.push(<div><ListOfGames/></div>);
+      content.push(<div key="1"><ListOfGames/></div>);
     else  
       content.push(<div><HeaderCounter/><BodyCounter/></div>);
 
