@@ -35,7 +35,6 @@ const reducer = (state, action) => {
         contacts: action.payload, gameId: state.gameId
       };
       case "START_GAME":
-        //debugger;
       return {
         contacts: [...state.contacts], gameId: action.payload
       };

@@ -100,4 +100,4 @@ class GameContentSchema(ma.Schema):
 class GameSchema(ma.Schema):
     id = fields.Integer()
     description = fields.String()
-    creation_date = fields.String()
+    creation_date = fields.DateTime()
